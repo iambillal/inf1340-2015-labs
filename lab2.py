@@ -38,8 +38,9 @@ def name_that_shape():
 
     """
 
-    sides = int(raw_input("Number of sides:"))
 
+def name_that_shape():
+    sides = get_user_input()
     if sides == 3:
         print("triangle")
     elif sides == 4:
@@ -59,4 +60,19 @@ def name_that_shape():
     else:
         print("Error")
 
-# name_that_shape()
+
+def get_user_input():
+    output = ""
+    output = str(raw_input("Number of sides:"))
+    keeping_going = True
+    # while loop to get input
+    while keeping_going:
+        output = raw_input("Number of sides:")
+        if output.isdigit() or (output[0] == "-" and output[1:].isdigit()):
+            keeping_going = False
+        else:
+            keeping_going = True
+    output = int(output)
+    return output
+
+print name_that_shape()
