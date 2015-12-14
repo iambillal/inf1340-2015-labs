@@ -12,11 +12,9 @@ def days_in_month(month):
     month = month.capitalize()
     days = ""
 
-    if month == "April" or month == "June" \
-            or month == "September" or month == "November":
+    if month == "April" or month == "June" or month == "September" or month == "November":
         days = 30
-    elif month == "January" or month == "March" or month == "May" \
-            or month == "July" or month == "August" or month == "October" or month == "December":
+    elif month == "January" or month == "March" or month == "May" or month == "July" or month == "August" or month == "October" or month == "December":
         days = 31
     elif month == "February":
         days = "28 or 29"
