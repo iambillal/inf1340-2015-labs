@@ -43,13 +43,18 @@ def test_months_not_capitalised():
 # Test function for unexpected input
 def test_unexpected_input():
     try:
-        assert days_in_month("12345")
+        assert days_in_month("dog")
     except ValueError:
         return True
 
     try:
-        assert days_in_month(12345)
-    except AssertionError:
+        assert days_in_month(1234)
+    except ValueError:
+        return True
+
+    try:
+        assert days_in_month(5.2325)
+    except AttributeError:
         return True
 
 # Hint: use a try/except block to deal with the exception
