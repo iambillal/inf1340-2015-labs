@@ -58,21 +58,20 @@ def name_that_shape():
     elif sides == 10:
         print("decagon")
     else:
-        print("Error")
+        raise ValueError
 
-
+#Function handles invalid character input and reprompts user for valid input
 def get_user_input():
-    output = ""
+    output = " "
     output = str(raw_input("Number of sides:"))
-    keeping_going = True
-    # while loop to get input
-    while keeping_going:
-        output = raw_input("Number of sides:")
-        if output.isdigit() or (output[0] == "-" and output[1:].isdigit()):
-            keeping_going = False
+    skip_over = True
+    while skip_over:
+        output = raw_input("Please enter number of sides: ")
+        if (output.isdigit()) == True or (output[0] == "-" and output[1:].isdigit()) == True:
+            skip_over = False
         else:
-            keeping_going = True
+            skip_over = True
     output = int(output)
     return output
 
-print name_that_shape()
+#name_that_shape()
