@@ -38,7 +38,8 @@ def name_that_shape():
 
     """
 
-
+#If user enters integers 3-10 this will return a string
+#If user eneters an integer outside the range this will raise value error
 def name_that_shape():
     sides = get_user_input()
     if sides == 3:
