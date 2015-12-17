@@ -34,8 +34,8 @@ def bill_of_sale(purchase):
 
     with open(file_name, 'w') as output_file:
         output_file.write("Amount of purchase: {0:.2f}\n".format(purchase))
-        output_file.write("Provincial tax: {0:.2f}\n".format(calculate_provincial_tax()))
-        output_file.write("Federal tax: {0:.2f}\n".format(calculate_federal_tax()))
+        output_file.write("Provincial tax: {0:.2f}\n".format(calculate_provincial_tax())
+        output_file.write("Federal tax: {0:.2f}\n".format(calculate_federal_tax())
         output_file.write("Total tax: {0:.2f}\n".format(purchase * TOTAL_TAX))
         output_file.write("Total sale: {0:.2f}".format(purchase * TOTAL_SALE))
 
