@@ -22,22 +22,42 @@ FEDERAL_TAX = 0.025
 TOTAL_TAX = 0.075
 TOTAL_SALE = 1.075
 
+def calc_provincial_tax(amount):
+    provincial_tax = amount * PROVINCIAL_TAX_RATE
+    return provincial_tax
+
+def calc_federal_tax(amount):
+    federal_tax = amount * FEDERAL_TAX_RATE
+    return federal_tax
+
+def calc_total_tax(provincial_tax, federal_tax):
+    total_tax = provincial_tax + federal_tax
+    return total_tax
+
+def calc_subtotal(amount, total_tax):
+    sub_total = amount + total_tax
+    return sub_total
+
 def bill_of_sale(purchase):
 
-    def calculate_provincial_tax():
-        return purchase * PROVINCIAL_TAX
+    provincial_tax = calc_provincial_tax(purchase)
+    federal_tax = calc_federal_tax(purchase)
+    total_tax = calc_total_tax(provincial_tax, federal_tax)
+    subtotal = calc_subtotal(purchase, total_tax)
 
-    def calculate_federal_tax():
-        return purchase * FEDERAL_TAX
+def print_your_bill(purchase, prov_tax, fed_tax, all_tax, sale_price):
+    with open(file_name, "a") as output_file:
+        output_file.write("\n\nAmount of purchase: {0:.2f}".format(purchase))
+        output_file.write("\nProvincial tax: {0:.2f}".format(prov_tax))
+        output_file.write("\nFederal tax: {0:.2f}".format(fed_tax))
+        output_file.write("\nTotal tax: {0:.2f}".format(all_tax))
+        output_file.write("\nTotal sale: {0:.2f}".format(sale_price))
 
-    file_name = "receipt_of_sale.txt"
+def bill_of_sale(purchase):
 
-    with open(file_name, 'w') as output_file:
-        output_file.write("Amount of purchase: {0:.2f}\n".format(purchase))
-        output_file.write("Provincial tax: {0:.2f}\n".format(calculate_provincial_tax())
-        output_file.write("Federal tax: {0:.2f}\n".format(calculate_federal_tax())
-        output_file.write("Total tax: {0:.2f}\n".format(purchase * TOTAL_TAX))
-        output_file.write("Total sale: {0:.2f}".format(purchase * TOTAL_SALE))
-
-print bill_of_sale(100)
+    print ("Amount of purchase: {0:.2f}".format(purchase))
+    print ("Provincial tax: {0:.2f}".format(purchase * .05))
+    print ("Federal tax: {0:.2f}".format(purchase * .025))
+    print ("Total tax: {0:.2f}".format(purchase * .075))
+    print ("Total sale: {0:.2f}".format(purchase * 1.075))
 
