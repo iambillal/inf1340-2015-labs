@@ -37,9 +37,6 @@ def test_months_not_capitalised():
     for item in MONTHS_WITH_30 or MONTHS_WITH_28_or_29 or MONTHS_WITH_31:
         assert days_in_month(item.lower()) == 30 or 31 or "28 or 29"
 
-
-
-
 # Test function for unexpected input
 def test_unexpected_input():
     try:
