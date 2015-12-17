@@ -61,3 +61,4 @@ def bill_of_sale(purchase):
     print ("Total tax: {0:.2f}".format(purchase * .075))
     print ("Total sale: {0:.2f}".format(purchase * 1.075))
 
+bill_of_sale(100)
