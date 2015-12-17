@@ -17,7 +17,7 @@ entered. A legal value is any integer.
 
 """
 
-def name_that_shape():
+
     """
     For a given number of sides in a regular polygon, returns the shape name
 
@@ -40,8 +40,9 @@ def name_that_shape():
 
 #If user enters integers 3-10 this will return a string
 #If user eneters an integer outside the range this will raise value error
+
 def name_that_shape():
-    sides = get_user_input()
+    sides = user_input()
     if sides == 3:
         print("triangle")
     elif sides == 4:
@@ -61,18 +62,12 @@ def name_that_shape():
     else:
         raise ValueError
 
-#Function handles invalid character input and reprompts user for valid input
-def get_user_input():
-    output = " "
-    output = str(raw_input("Number of sides:"))
-    skip_over = True
-    while skip_over:
-        output = raw_input("Please enter number of sides: ")
-        if (output.isdigit()) == True or (output[0] == "-" and output[1:].isdigit()) == True:
-            skip_over = False
-        else:
-            skip_over = True
-    output = int(output)
-    return output
-
-#name_that_shape()
+def user_input():
+    user_input = raw_input("Please enter number of sides:")
+    #When input is not an integer, ask user to re-enter an integer value 
+    while not user_input.isdigit() or(user_input [0] == "-" and user_input[1:].isdigit()):
+        user_input = raw_input("Please re-enter a number:")
+    user_input = int(user_input)
+    return user_input
+    
+print name_that_shape()
