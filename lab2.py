@@ -60,7 +60,7 @@ def name_that_shape():
     elif sides == 10:
         print("decagon")
     else:
-        raise ValueError
+        print("error")
 
 def user_input():
     user_input = raw_input("Please enter number of sides:")
